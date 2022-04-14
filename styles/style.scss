@@ -1,0 +1,212 @@
+@use "sass:math";
+@use "variables" as *;
+@use "functions" as *;
+
+:root {
+  font-size: em(15px, 16px);
+}
+
+@include reset;
+
+body {
+  background-color: color(very-dark-blue);
+  font-family: "Overpass", sans-serif;
+  color: color(white);
+  padding-inline: 24px;
+  height: 100vh;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.card {
+  background-image: radial-gradient(
+    98.96% 98.96% at 50% 0%,
+    hsl(215, 20%, 17%) 0%,
+    hsl(216, 24%, 12%) 100%
+  );
+  border-radius: 15px;
+  max-width: rem(412px);
+  padding: 24px;
+  @media (min-width: $custom_breakpoint) {
+    padding: 32px;
+    border-radius: 30px;
+  }
+}
+
+.star {
+  width: rem(40px);
+  height: rem(40px);
+  background: {
+    image: url("../images/icon-star.svg");
+    position: center center;
+    repeat: no-repeat;
+    color: color(dark-blue);
+    size: rem(13.96px) rem(13.33px);
+  }
+  border-radius: 50%;
+  margin-bottom: rem(16px);
+  @media (min-width: $custom_breakpoint) {
+    width: rem(48px);
+    height: rem(48px);
+    background-size: rem(16.75px) rem(16px);
+    margin-bottom: rem(30px);
+  }
+}
+
+.card__header {
+  font-size: rem(24px);
+  line-height: math.div(30.38, 24);
+  font-weight: bold;
+  margin-bottom: em(17px, 24px);
+  @media (min-width: $custom_breakpoint) {
+    font-size: rem(28px);
+    line-height: math.div(35.45, 28);
+    margin-bottom: em(7px, 28px);
+  }
+}
+
+.card__text {
+  font-size: rem(14px);
+  line-height: math.div(22, 14);
+  margin-bottom: em(24px, 14px);
+  color: color(light-grey);
+  @media (min-width: $custom_breakpoint) {
+    font-size: rem(15px);
+    line-height: math.div(24, 15);
+    margin-bottom: em(24px, 15px);
+  }
+}
+
+.card__rating {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: rem(24px);
+  @media (min-width: $custom_breakpoint) {
+    margin-bottom: rem(32px);
+  }
+  input {
+    display: none;
+  }
+}
+
+.radio-button {
+  width: rem(42px);
+  height: rem(42px);
+  background-color: color(dark-blue);
+  border-radius: 50%;
+  font-size: rem(14px);
+  font-weight: bold;
+  color: color(medium-grey);
+  line-height: math.div(45, 14);
+  text-align: center;
+  cursor: pointer;
+  @media (min-width: $custom_breakpoint) {
+    width: rem(51px);
+    height: rem(51px);
+    font-size: rem(16px);
+    line-height: math.div(55, 16);
+  }
+  &:hover {
+    background-color: color(orange);
+    color: color(white);
+  }
+}
+
+input[type="radio"]:checked + .radio-button {
+  background-color: color(medium-grey);
+  color: color(white);
+}
+
+.submit-button {
+  width: 100%;
+  border: 0;
+  height: rem(45px);
+  background-color: color(orange);
+  color: color(white);
+  text-transform: uppercase;
+  border-radius: 22.5px;
+  margin-bottom: 8px;
+  font-size: rem(14px);
+  font-weight: bold;
+  line-height: math.div(17.72, 14);
+  letter-spacing: 1.87px;
+  cursor: pointer;
+  @media (min-width: $custom_breakpoint) {
+    font-size: rem(15px);
+    line-height: math.div(18.99, 15);
+    letter-spacing: 2px;
+  }
+  &:hover {
+    background-color: color(white);
+    color: color(orange);
+  }
+}
+
+.thanku-img {
+  display: block;
+  width: 144px;
+  height: 96px;
+  margin: 10px auto 24px;
+  @media (min-width: $custom_breakpoint) {
+    width: 162px;
+    height: 108px;
+    margin: 13px auto 32px;
+  }
+}
+
+.card__result {
+  color: color(orange);
+  background-color: color(dark-blue);
+  max-width: rem(168px);
+  height: rem(32px);
+  margin: auto;
+  font-size: rem(14px);
+  line-height: math.div(35, 14);
+  border-radius: 22.5px;
+  margin-bottom: em(24px, 14px);
+  @media (min-width: $custom_breakpoint) {
+    font-size: rem(15px);
+    line-height: math.div(35, 15);
+    max-width: rem(193px);
+    margin-bottom: em(32px, 15px);
+  }
+}
+
+@keyframes warning {
+  from {
+    background-color: color(dark-blue);
+    color: color(medium-grey);
+  }
+
+  25% {
+    background-color: color(orange);
+    color: color(white);
+  }
+
+  100% {
+    background-color: color(dark-blue);
+    color: color(medium-grey);
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+// STARTER CODE
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}

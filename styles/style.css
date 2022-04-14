@@ -1,0 +1,225 @@
+:root {
+  font-size: 0.9375em;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: hsl(216deg, 12%, 8%);
+  font-family: "Overpass", sans-serif;
+  color: hsl(0deg, 0%, 100%);
+  padding-inline: 24px;
+  height: 100vh;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.card {
+  background-image: radial-gradient(98.96% 98.96% at 50% 0%, hsl(215deg, 20%, 17%) 0%, hsl(216deg, 24%, 12%) 100%);
+  border-radius: 15px;
+  max-width: 27.4666666667rem;
+  padding: 24px;
+}
+@media (min-width: 440px) {
+  .card {
+    padding: 32px;
+    border-radius: 30px;
+  }
+}
+
+.star {
+  width: 2.6666666667rem;
+  height: 2.6666666667rem;
+  background-image: url("../images/icon-star.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: hsl(213deg, 20%, 18%);
+  background-size: 0.9306666667rem 0.8886666667rem;
+  border-radius: 50%;
+  margin-bottom: 1.0666666667rem;
+}
+@media (min-width: 440px) {
+  .star {
+    width: 3.2rem;
+    height: 3.2rem;
+    background-size: 1.1166666667rem 1.0666666667rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.card__header {
+  font-size: 1.6rem;
+  line-height: 1.2658333333;
+  font-weight: bold;
+  margin-bottom: 0.7083333333em;
+}
+@media (min-width: 440px) {
+  .card__header {
+    font-size: 1.8666666667rem;
+    line-height: 1.2660714286;
+    margin-bottom: 0.25em;
+  }
+}
+
+.card__text {
+  font-size: 0.9333333333rem;
+  line-height: 1.5714285714;
+  margin-bottom: 1.7142857143em;
+  color: hsl(217deg, 12%, 63%);
+}
+@media (min-width: 440px) {
+  .card__text {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+  }
+}
+
+.card__rating {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.6rem;
+}
+@media (min-width: 440px) {
+  .card__rating {
+    margin-bottom: 2.1333333333rem;
+  }
+}
+.card__rating input {
+  display: none;
+}
+
+.radio-button {
+  width: 2.8rem;
+  height: 2.8rem;
+  background-color: hsl(213deg, 20%, 18%);
+  border-radius: 50%;
+  font-size: 0.9333333333rem;
+  font-weight: bold;
+  color: hsl(216deg, 12%, 54%);
+  line-height: 3.2142857143;
+  text-align: center;
+  cursor: pointer;
+}
+@media (min-width: 440px) {
+  .radio-button {
+    width: 3.4rem;
+    height: 3.4rem;
+    font-size: 1.0666666667rem;
+    line-height: 3.4375;
+  }
+}
+.radio-button:hover {
+  background-color: hsl(25deg, 97%, 53%);
+  color: hsl(0deg, 0%, 100%);
+}
+
+input[type=radio]:checked + .radio-button {
+  background-color: hsl(216deg, 12%, 54%);
+  color: hsl(0deg, 0%, 100%);
+}
+
+.submit-button {
+  width: 100%;
+  border: 0;
+  height: 3rem;
+  background-color: hsl(25deg, 97%, 53%);
+  color: hsl(0deg, 0%, 100%);
+  text-transform: uppercase;
+  border-radius: 22.5px;
+  margin-bottom: 8px;
+  font-size: 0.9333333333rem;
+  font-weight: bold;
+  line-height: 1.2657142857;
+  letter-spacing: 1.87px;
+  cursor: pointer;
+}
+@media (min-width: 440px) {
+  .submit-button {
+    font-size: 1rem;
+    line-height: 1.266;
+    letter-spacing: 2px;
+  }
+}
+.submit-button:hover {
+  background-color: hsl(0deg, 0%, 100%);
+  color: hsl(25deg, 97%, 53%);
+}
+
+.thanku-img {
+  display: block;
+  width: 144px;
+  height: 96px;
+  margin: 10px auto 24px;
+}
+@media (min-width: 440px) {
+  .thanku-img {
+    width: 162px;
+    height: 108px;
+    margin: 13px auto 32px;
+  }
+}
+
+.card__result {
+  color: hsl(25deg, 97%, 53%);
+  background-color: hsl(213deg, 20%, 18%);
+  max-width: 11.2rem;
+  height: 2.1333333333rem;
+  margin: auto;
+  font-size: 0.9333333333rem;
+  line-height: 2.5;
+  border-radius: 22.5px;
+  margin-bottom: 1.7142857143em;
+}
+@media (min-width: 440px) {
+  .card__result {
+    font-size: 1rem;
+    line-height: 2.3333333333;
+    max-width: 12.8666666667rem;
+    margin-bottom: 2.1333333333em;
+  }
+}
+
+@keyframes warning {
+  from {
+    background-color: hsl(213deg, 20%, 18%);
+    color: hsl(216deg, 12%, 54%);
+  }
+  25% {
+    background-color: hsl(25deg, 97%, 53%);
+    color: hsl(0deg, 0%, 100%);
+  }
+  100% {
+    background-color: hsl(213deg, 20%, 18%);
+    color: hsl(216deg, 12%, 54%);
+  }
+}
+.center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228deg, 45%, 44%);
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,75 @@
+@use "sass:math";
+
+@use "variables" as *;
+
+@function color($colorName) {
+  @return map-get($colors, $colorName);
+}
+
+// Reset
+@mixin reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+// Unit conversion
+
+@function strip-unit($value) {
+  @if unitless($value) {
+    @return $value;
+  }
+  @each $unit in $units {
+    @if unit($value) == unit($unit) {
+      @return math.div($value, $unit);
+    }
+  }
+  @error "Invalid unit!";
+  @return null;
+}
+
+@function convertUnit($value, $to) {
+  $thisUnit: unit($value);
+  @if $thisUnit == em {
+    @error "Conversion not supported!";
+    @return $value;
+  }
+  @if $thisUnit == $to {
+    @return $value;
+  }
+  $inpx: strip-unit($value) * map-get($unit-table, $thisUnit);
+  $converted: math.div($inpx, map-get($unit-table, $to));
+  @each $unit in $units {
+    //convert string to number
+    @if unit($unit) == $to {
+      $to: $unit;
+    }
+  }
+  @if type-of($to) != number {
+    @error "Ivalid unit! Conversion failed.";
+    @return $value;
+  }
+  @return $converted * $to;
+}
+
+@function rem($px) {
+  @return convertUnit($px, rem);
+}
+
+@function em($value, $context) {
+  @if unit($value) == em or unit($context) == em {
+    @error "Ivalid unit! Conversion failed.";
+    @return $value;
+  }
+  @if unit($value) != px {
+    $value: convertUnit($value, px);
+  }
+  @if unit($context) != px {
+    $context: convertUnit($context, px);
+  }
+  @return math.div($value, $context) * 1em;
+}
